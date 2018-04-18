@@ -1,4 +1,9 @@
+@if(!(auth()->user()))
+    <div class="col-lg-2">
+        <a href="{{ route('register.create') }}">register</a>
 
+    </div>
+@endif
 
 <form method="POST" action="/log">
     {{ csrf_field() }}

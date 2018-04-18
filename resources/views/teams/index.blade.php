@@ -3,6 +3,8 @@
         {{ session('status') }}
     </div>
 @endif
+
+
 <div class="container">
     <div style="margin-bottom: 40px" class="row">
         @if(!(auth()->user()))
@@ -22,6 +24,7 @@
     </div>
 </div>
 
+<h2>Team listing</h2>
 
 <ul>
     @foreach($teams as $team)
