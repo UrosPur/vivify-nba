@@ -18,9 +18,8 @@ class TeamsController extends Controller
 
     public function index()
     {
-        $teams = Team::all();
+        $teams = Team::with('comment')->get();
 
-//        dd($teams);
 
         return view('teams.index',compact('teams'));
     }

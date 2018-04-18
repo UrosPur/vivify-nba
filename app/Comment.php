@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    protected $table = 'comments';
+    public function team()
+    {
+        return $this->hasMany('App\Team');
+    }
 }

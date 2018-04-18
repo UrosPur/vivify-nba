@@ -13,7 +13,7 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::table('comments', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->text('content');
             $table->unsignedInteger('user_id');
@@ -32,15 +32,15 @@ class CreateCommentsTable extends Migration
 
 
         //not sure
-//        Schema::create('comments_teams', function (Blueprint $table) {
-//
-//            $table->integer('comments_id');
-//            $table->integer('teams_id');
-//            $table->primary(['comments_id', 'teams_id']);
-//
-//
-//        });
-//
+        Schema::create('comments_teams', function (Blueprint $table) {
+
+            $table->integer('comments_id');
+            $table->integer('teams_id');
+            $table->primary(['comments_id', 'teams_id']);
+
+
+        });
+
     }
 
     /**
@@ -59,7 +59,7 @@ class CreateCommentsTable extends Migration
 
         });
 //          not sure
-//        Schema::dropIfExists('comments');
-//        Schema::dropIfExists('comments_teams');
+        Schema::dropIfExists('comments');
+        Schema::dropIfExists('comments_teams');
     }
 }

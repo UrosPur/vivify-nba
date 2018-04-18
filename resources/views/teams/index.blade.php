@@ -29,5 +29,9 @@
 <ul>
     @foreach($teams as $team)
         <li><a href="{{ route('teams.show', ['id' => $team->id] )}}"> {{ $team->name }}</a></li>
+        @foreach($team->comment as $comment)
+
+            <li>{{ $comment->content }}</li>
+        @endforeach
     @endforeach
 </ul>
