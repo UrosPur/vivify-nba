@@ -22,7 +22,7 @@ class LoginController extends Controller
     public function store()
     {
 
-        if (!auth()->attempt(request(['email', 'password']))) {
+        if (!auth()->attempt(request(['email', 'password'])))  {
 
             return back()->withErrors([
 
@@ -31,6 +31,27 @@ class LoginController extends Controller
             ]);
 
         }
+
+
+////        if(!isset(auth()->user()->is_verified)){
+////            dd(200);
+////        }else{
+////            dd(250);
+////        }
+//
+//
+//        if(!isset(auth()->user()->is_verified)) {
+//
+//
+//            dd(25000);
+//            return back()->withErrors([
+//
+//               'message' => 'Please check your email to verify your account'
+//
+//            ]);
+//
+//        }
+
 
         return redirect()->route('teams.index')->with('status', 'Successfully logged in');
 

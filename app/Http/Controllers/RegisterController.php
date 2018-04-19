@@ -37,7 +37,7 @@ class RegisterController extends Controller
 
         $user->save();
 
-        return redirect()->route('teams.index')->with('status', 'Registration successful !');
+        return redirect()->route('login')->with('status', 'Registration successful !');
 
     }
 }

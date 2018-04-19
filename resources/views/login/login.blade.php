@@ -5,6 +5,28 @@
     </div>
 @endif
 
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
+
+<?php //var_dump($errors);exit; ?>
+<?php //var_dump($errors->all());exit; ?>
+
+@if (count($errors->all()) > 0)
+
+    @foreach($errors->all() as $error)
+        <div class="form-group">
+            <div class="alert alert-danger">
+                <li>{{ $error }}</li>
+            </div>
+        </div>
+    @endforeach
+
+@endif
+
+
 <form method="POST" action="/log">
     {{ csrf_field() }}
     <h2>Login</h2>
@@ -25,8 +47,6 @@
         @include('partial.error',['fieldTitle' => 'password'])
 
     </div>
-
-
 
 
     <div class="form-group">
