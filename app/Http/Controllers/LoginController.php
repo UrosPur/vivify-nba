@@ -22,7 +22,7 @@ class LoginController extends Controller
     public function store()
     {
 
-        if (!auth()->attempt(request(['email', 'password'])))  {
+        if (!auth()->attempt(['email' => request('email'), 'password' => \request('password'),'is_verified' => 1]))  {
 
             return back()->withErrors([
 
