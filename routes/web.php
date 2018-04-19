@@ -30,3 +30,7 @@ Route::post('/register', 'RegisterController@store')->name('register.store');
 Route::get('/login', 'LoginController@create')->name('login');
 Route::post('/log', 'LoginController@store')->name('login.store');
 Route::get('/logout', 'LoginController@logout')->name('logout');
+
+// verification user
+
+Route::get('register/verify/{confirmationCode}', 'RegisterController@confirm')->name('register.confirm');
