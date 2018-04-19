@@ -34,3 +34,7 @@ Route::get('/logout', 'LoginController@logout')->name('logout');
 // verification user
 
 Route::get('register/verify/{confirmationCode}', 'RegisterController@confirm')->name('register.confirm');
+
+
+// adding a new comment
+Route::post('/comment-create/{id}', 'CommentsController@store')->name('comments.store');

@@ -16,3 +16,24 @@ List of players
 
     @endforeach
 </ul>
+
+
+<form method="POST" action="{{ route('comments.store', [ 'team_id' => $team->id ]) }}">
+    {{ csrf_field() }}
+    <h2>Add Comment</h2>
+
+    <div class="form-group">
+
+        <label for="content"> Write your comment here</label>
+        <textarea id="content" type="text" name="content" class="form-control"></textarea>
+        @include('partial.error',['fieldTitle' => 'content'])
+
+    </div>
+
+    <div class="form-group">
+
+        <button type="submit" class="btn btn-primary"> add comment</button>
+
+    </div>
+
+</form>
