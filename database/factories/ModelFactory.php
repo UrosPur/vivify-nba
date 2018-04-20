@@ -20,5 +20,30 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+        'is_verified' => 1,
+        'confirmation_code' => null,
     ];
 });
+
+
+$factory->define(App\Team::class, function (Faker\Generator $faker) {
+
+    return [
+        'name' => $faker->name,
+        'email' => $faker->unique()->safeEmail,
+        'address' => $faker->address,
+        'city' => $faker->city,
+    ];
+});
+
+
+$factory->define(App\Player::class, function (Faker\Generator $faker) {
+
+    return [
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
+        'email' => $faker->unique()->safeEmail,
+    ];
+});
+
+
