@@ -18,7 +18,7 @@ class TeamsController extends Controller
 
     public function index()
     {
-        $teams = Team::with('comment')->get();
+        $teams = Team::all();
 
 
         return view('teams.index',compact('teams'));
@@ -26,7 +26,7 @@ class TeamsController extends Controller
 
     public function show($id)
     {
-        $team = Team::with('player')->find($id);
+        $team = Team::with(['player','comment'])->find($id);
 
 //        dd($team);
 

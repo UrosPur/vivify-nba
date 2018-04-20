@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Team;
 use Illuminate\Http\Request;
 use App\Comment;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CommentsReceived;
 
 class CommentsController extends Controller
 {
     public function store($id)
     {
+
+        $team = Team::find($id);
 
         $this->validate(request(), [
 
@@ -28,6 +33,8 @@ class CommentsController extends Controller
                 $comment->user_id = auth()->user()->id;
 
                 $comment->save();
+
+                Mail::to($team->email)->send(new CommentsReceived($team));
 
 
                 return redirect()->back();
