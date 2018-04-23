@@ -38,3 +38,7 @@ Route::get('register/verify/{confirmationCode}', 'RegisterController@confirm')->
 
 // adding a new comment
 Route::post('/comment-create/{id}', 'CommentsController@store')->name('comments.store');
+
+//news routes
+Route::get('/news','NewsController@index')->name('news.index');
+Route::get('/news/{id}','NewsController@show')->name('news.show');

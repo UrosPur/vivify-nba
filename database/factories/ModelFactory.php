@@ -46,4 +46,16 @@ $factory->define(App\Player::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\News::class, function(Faker\Generator $faker) {
+
+   return [
+
+            'title' => $faker->sentence(3),
+            'content' => $faker->text(250),
+
+   ] ;
+
+
+});
+
 

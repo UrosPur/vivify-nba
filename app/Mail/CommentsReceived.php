@@ -22,7 +22,6 @@ class CommentsReceived extends Mailable
     public function __construct(Team $team)
     {
         $this -> team = $team;
-        $this -> team = $team;
     }
 
     /**

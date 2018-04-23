@@ -39,6 +39,7 @@ List of players
 </form>
 
 <ul>
+
 @foreach($team->comment as $comment)
 
     <li>{{ $comment->content }}</li><br>
